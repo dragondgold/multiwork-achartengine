@@ -48,6 +48,7 @@ import android.graphics.PathEffect;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.util.Log;
 
 /**
  * The XY chart rendering class.
@@ -240,7 +241,7 @@ public abstract class XYChart extends AbstractChart {
     for (int i = 0; i < sLength; i++) {
       XYSeries series = mDataset.getSeriesAt(i);
       int scale = series.getScaleNumber();
-      if (series.getItemCount() == 0) {
+      if (series.getItemCount() == 0 && !series.isRectangleSeries()) {
         continue;
       }
 
@@ -318,22 +319,26 @@ public abstract class XYChart extends AbstractChart {
             }
           }
         }
-        
-        int count = series.getRectangleCount();
-        if(count > 0){
-          paint.setColor(seriesRenderer.getColor());
-          for(int n = 0; n < count; ++n){
-            Double[] data = series.getRectangle(n);
-            float x1 = (float) (left + xPixelsPerUnit[scale]
-                * (series.getRectangle(n)[0] - minX[scale]));
-            float y1 = (float) (bottom - yPixelsPerUnit[scale]
-                * (series.getRectangle(n)[1] - minY[scale]));
-            float x2 = (float) (left + xPixelsPerUnit[scale]
-                * (series.getRectangle(n)[2] - minX[scale]));
-            float y2 = (float) (bottom - yPixelsPerUnit[scale]
-                * (series.getRectangle(n)[3] - minY[scale]));
-            
-            canvas.drawRect(x1, y1, x2, y2, paint);
+        else{
+          int count = series.getRectangleCount();
+          if(count > 0){
+            paint.setColor(seriesRenderer.getColor());
+            paint.setStyle(Style.STROKE);
+            paint.setStrokeWidth(seriesRenderer.getLineWidth());
+            for(int n = 0; n < count; ++n){
+              Log.i("ACE", "Rectangulo " + n);
+              Double[] data = series.getRectangle(n);
+              float x1 = (float) (left + xPixelsPerUnit[scale]
+                  * (series.getRectangle(n)[0] - minX[scale]));
+              float y1 = (float) (bottom - yPixelsPerUnit[scale]
+                  * (series.getRectangle(n)[1] - minY[scale]));
+              float x2 = (float) (left + xPixelsPerUnit[scale]
+                  * (series.getRectangle(n)[2] - minX[scale]));
+              float y2 = (float) (bottom - yPixelsPerUnit[scale]
+                  * (series.getRectangle(n)[3] - minY[scale]));
+              
+              canvas.drawRect(x1, y1, x2, y2, paint);
+            }
           }
         }
 
