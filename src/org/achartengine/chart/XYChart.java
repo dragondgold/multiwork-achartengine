@@ -34,7 +34,6 @@ import org.achartengine.renderer.SimpleSeriesRenderer;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYMultipleSeriesRenderer.Orientation;
 import org.achartengine.renderer.XYSeriesRenderer;
-import org.achartengine.tools.ZoomListener;
 import org.achartengine.util.MathHelper;
 
 import android.graphics.Canvas;
