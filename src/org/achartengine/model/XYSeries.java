@@ -336,6 +336,11 @@ public class XYSeries implements Serializable {
     mRectangles.set(index, new Double[] {left,top,right,bottom});
   }
   
+  /**
+   * Obtiene el rectangulo en el index dado
+   * @param index
+   * @return Array Double[] siendo las coordenadas en el orden left, top, right, bottom
+   */
   public Double[] getRectangle (int index){
     return mRectangles.get(index);
   }
