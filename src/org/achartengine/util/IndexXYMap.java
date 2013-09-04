@@ -47,7 +47,7 @@ public class IndexXYMap<K, V> extends TreeMap<K, V> {
   public V replace(int index, K key, V value) {
     removeByIndex(index);
     
-    indexList.set(index, key);
+    indexList.add(index, key);
     updateMaxXDifference();
     return super.put(key, value);
   }

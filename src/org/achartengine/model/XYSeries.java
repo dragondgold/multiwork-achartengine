@@ -25,8 +25,6 @@ import org.achartengine.util.IndexXYMap;
 import org.achartengine.util.MathHelper;
 import org.achartengine.util.XYEntry;
 
-import android.R.integer;
-
 /**
  * An XY series encapsulates values for XY charts like line, time, area,
  * scatter... charts.
@@ -247,7 +245,7 @@ public class XYSeries implements Serializable {
   }
   
   /**
-   * Reemplaza la anotación por la nueva
+   * Reemplaza la anotación en el index por la nueva
    * @param index index de la anotación a reemplazar
    * @param annotation anotación nueva
    * @param x nueva coordenada x

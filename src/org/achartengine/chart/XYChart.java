@@ -321,7 +321,7 @@ public abstract class XYChart extends AbstractChart {
         
         int count = series.getRectangleCount();
         if(count > 0){
-          paint.setColor(seriesRenderer.getAnnotationsColor());
+          paint.setColor(seriesRenderer.getColor());
           for(int n = 0; n < count; ++n){
             Double[] data = series.getRectangle(n);
             float x1 = (float) (left + xPixelsPerUnit[scale]
