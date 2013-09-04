@@ -193,6 +193,7 @@ public class XYSeries implements Serializable {
   public synchronized void clear() {
     clearSeriesValues();
     clearAnnotations();
+    clearRectangles();
     initRange();
   }
   
@@ -210,6 +211,10 @@ public class XYSeries implements Serializable {
   public synchronized void clearSeriesValues (){
     mXY.clear();
     initRange();
+  }
+  
+  public synchronized void clearRectangles (){
+    mRectangles.clear();
   }
 
   /**
