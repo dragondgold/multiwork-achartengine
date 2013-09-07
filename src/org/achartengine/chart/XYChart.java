@@ -340,6 +340,7 @@ public abstract class XYChart extends AbstractChart {
             }
           }
         }
+        paint.setStrokeWidth(mRenderer.getGridWidth());
 
         if (points.size() > 0) {
           drawSeries(series, canvas, paint, points, seriesRenderer, yAxisValue, i, or, startIndex);

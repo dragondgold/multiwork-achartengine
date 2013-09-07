@@ -110,6 +110,8 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
   private double mZoomInLimitX = 0;
   /** The zoom in limit permitted in the axis Y */
   private double mZoomInLimitY = 0;
+  
+  private float gridWidth = 0.5f;
 
   /**
    * An enum for the XY chart orientation of the X axis.
@@ -140,6 +142,14 @@ public class XYMultipleSeriesRenderer extends DefaultRenderer {
   public XYMultipleSeriesRenderer(int scaleNumber) {
     scalesCount = scaleNumber;
     initAxesRange(scaleNumber);
+  }
+  
+  public void setGridWidth (float width){
+    gridWidth = width;
+  }
+  
+  public float getGridWidth (){
+    return gridWidth;
   }
 
   public void initAxesRange(int scales) {
